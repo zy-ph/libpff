@@ -188,3 +188,12 @@ stamp-h[1-9]
 /libfvalue
 /libfwnt
 /libuna
+msvscpp/.vs/
+msvscpp/*/Release
+msvscpp/*/Debug
+msvscpp/Release
+msvscpp/Debug
+msvscpp/*/VSDebug
+msvscpp/VSDebug
+msvscpp/*/x64/VSDebug
+msvscpp/*/x64/Release

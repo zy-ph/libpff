@@ -136,6 +136,10 @@ struct export_handle
 	 */
 	uint8_t print_status_information;
 
+	/* Add metadata to the exported attachments
+	*/
+	uint8_t add_metadata;
+
 	/* The notification output stream
 	 */
 	FILE *notify_stream;

@@ -191,7 +191,7 @@ int libpff_attachment_get_type(
 			}
 			else if( attachment_method == LIBPFF_ATTACHMENT_METHOD_OLE )
 			{
-				*attachment_type = LIBPFF_ATTACHMENT_TYPE_DATA;
+				*attachment_type = LIBPFF_ATTACHMENT_TYPE_OLEDATA;
 			}
 			else
 			{

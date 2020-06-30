@@ -1108,14 +1108,14 @@ int item_file_write_filetime(
 		  filetime,
 		  (uint16_t *) filetime_string,
 		  32,
-		  LIBFDATETIME_STRING_FORMAT_TYPE_CTIME | LIBFDATETIME_STRING_FORMAT_FLAG_DATE_TIME_NANO_SECONDS,
+		  LIBFDATETIME_STRING_FORMAT_TYPE_CTIME | LIBFDATETIME_STRING_FORMAT_FLAG_DATE_TIME_MICRO_SECONDS,
 		  error );
 #else
 	result = libfdatetime_filetime_copy_to_utf8_string(
 		  filetime,
 		  (uint8_t *) filetime_string,
 		  32,
-		  LIBFDATETIME_STRING_FORMAT_TYPE_CTIME | LIBFDATETIME_STRING_FORMAT_FLAG_DATE_TIME_NANO_SECONDS,
+		  LIBFDATETIME_STRING_FORMAT_TYPE_CTIME | LIBFDATETIME_STRING_FORMAT_FLAG_DATE_TIME_MICRO_SECONDS,
 		  error );
 #endif
 	if( result != 1 )

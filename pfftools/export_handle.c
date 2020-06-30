@@ -110,6 +110,7 @@ int export_handle_initialize(
 	( *export_handle )->preferred_export_format  = EXPORT_FORMAT_TEXT;
 	( *export_handle )->ascii_codepage           = LIBPFF_CODEPAGE_WINDOWS_1252;
 	( *export_handle )->print_status_information = 1;
+	( *export_handle )->add_metadata			 = 0;
 	( *export_handle )->notify_stream            = EXPORT_HANDLE_NOTIFY_STREAM;
 
 	return( 1 );
@@ -7284,7 +7285,8 @@ int export_handle_export_attachment(
 	}
 	if( ( attachment_type != LIBPFF_ATTACHMENT_TYPE_DATA )
 	 && ( attachment_type != LIBPFF_ATTACHMENT_TYPE_ITEM )
-	 && ( attachment_type != LIBPFF_ATTACHMENT_TYPE_REFERENCE ) )
+	 && ( attachment_type != LIBPFF_ATTACHMENT_TYPE_REFERENCE )
+	 && ( attachment_type != LIBPFF_ATTACHMENT_TYPE_OLEDATA ) )
 	{
 		fprintf(
 		 export_handle->notify_stream,
@@ -7314,7 +7316,7 @@ int export_handle_export_attachment(
 
 		return( 1 );
 	}
-	if( attachment_type == LIBPFF_ATTACHMENT_TYPE_DATA )
+	if( attachment_type == LIBPFF_ATTACHMENT_TYPE_DATA || attachment_type == LIBPFF_ATTACHMENT_TYPE_OLEDATA )
 	{
 		if( export_handle_export_attachment_data(
 		     export_handle,
@@ -7788,6 +7790,157 @@ int export_handle_export_attachment_data(
 
 		goto on_error;
 	}
+
+	if( export_handle->add_metadata != 0 )
+	{
+		int attachment_type = 0;
+		uint32_t value_type = 0;
+		void *value_data = NULL;
+		size_t value_data_size = 0;
+		int64_t unknown = -1;
+		uint8_t false_value = 0;
+		uint8_t true_value = 1;
+
+		// retrieve attachment short filename
+		if (libpff_item_get_entry_value(attachment,
+									0,
+									LIBPFF_ENTRY_TYPE_ATTACHMENT_FILENAME_SHORT,
+									&value_type,
+									&value_data,
+									&value_data_size,
+									LIBPFF_ENTRY_VALUE_FLAG_MATCH_ANY_VALUE_TYPE,
+									error) != 1)
+		{
+			value_data = &unknown;
+		}
+		else
+		{
+			if (NULL == value_data || 0 == value_data_size)
+			{
+				value_data = &false_value;
+			}
+			else if (value_type == LIBPFF_VALUE_TYPE_STRING_UNICODE)
+			{
+				if (0 == wide_string_compare_no_case((wchar_t const*)value_data, L"smime.p7m",value_data_size/sizeof(wchar_t)))
+				{
+					value_data = &true_value;
+				}
+				else
+				{
+					value_data = &false_value;
+				}
+			}
+			else if (value_type == LIBPFF_VALUE_TYPE_STRING_ASCII)
+			{
+				if (0 == narrow_string_compare(value_data,"smime.p7m",value_data_size))
+				{
+					value_data = &true_value;
+				}
+				else
+				{
+					value_data = &false_value;
+				}
+			}
+		}
+		value_data_size = sizeof(uint8_t);
+		// write boolean value indicating if the name of the attachment is 'smime.p7m' or not.
+		write_count = file_stream_write(attachment_file_stream, value_data, value_data_size);
+		if( write_count != value_data_size )
+		{
+			libcerror_error_set(
+				error,
+				LIBCERROR_ERROR_DOMAIN_IO,
+				LIBCERROR_IO_ERROR_WRITE_FAILED,
+				"%s: unable to write attachment metadata.",
+				function );
+			goto on_error;
+		}
+
+
+		// retrieve and write the attachment method to the output stream
+		value_data_size = sizeof(uint32_t);
+		if( libpff_attachment_get_type(attachment, &attachment_type, error ) != 1 )
+		{
+			attachment_type = -1;
+		}
+		write_count = file_stream_write(attachment_file_stream, &attachment_type, value_data_size);
+		if( write_count != value_data_size )
+		{
+			libcerror_error_set(
+				error,
+				LIBCERROR_ERROR_DOMAIN_IO,
+				LIBCERROR_IO_ERROR_WRITE_FAILED,
+				"%s: unable to write attachment metadata.",
+				function );
+			goto on_error;
+		}
+
+		// retrieve and write the creation date to the output stream
+		if (libpff_item_get_entry_value(attachment,
+									0,
+									LIBPFF_ENTRY_TYPE_MESSAGE_CREATION_TIME,
+									&value_type,
+									&value_data,
+									&value_data_size,
+									LIBPFF_ENTRY_VALUE_FLAG_MATCH_ANY_VALUE_TYPE,
+									error) != 1)
+		{
+			value_data = &unknown;
+			value_data_size = sizeof(unknown);
+		}
+		write_count = file_stream_write(attachment_file_stream, value_data, value_data_size);
+		if( write_count != value_data_size )
+		{
+			libcerror_error_set(
+				error,
+				LIBCERROR_ERROR_DOMAIN_IO,
+				LIBCERROR_IO_ERROR_WRITE_FAILED,
+				"%s: unable to write attachment metadata.",
+				function );
+			goto on_error;
+		}
+
+		// retrieve and write the last modification date to the output stream
+		if (libpff_item_get_entry_value(attachment,
+								0,
+								LIBPFF_ENTRY_TYPE_MESSAGE_MODIFICATION_TIME,
+								&value_type,
+								&value_data,
+								&value_data_size,
+								LIBPFF_ENTRY_VALUE_FLAG_MATCH_ANY_VALUE_TYPE,
+								error) != 1)
+		{
+			value_data = &unknown;
+			value_data_size = sizeof(unknown);
+		}
+		write_count = file_stream_write(attachment_file_stream, value_data, value_data_size);
+		if( write_count != value_data_size )
+		{
+			libcerror_error_set(
+				error,
+				LIBCERROR_ERROR_DOMAIN_IO,
+				LIBCERROR_IO_ERROR_WRITE_FAILED,
+				"%s: unable to write attachment metadata.",
+				function );
+
+			goto on_error;
+		}
+
+		// write the data size to the output stream
+		write_count = file_stream_write(attachment_file_stream, &attachment_data_size, sizeof(attachment_data_size));
+		if( write_count != sizeof(attachment_data_size) )
+		{
+			libcerror_error_set(
+				error,
+				LIBCERROR_ERROR_DOMAIN_IO,
+				LIBCERROR_IO_ERROR_WRITE_FAILED,
+				"%s: unable to write attachment metadata.",
+				function );
+
+			goto on_error;
+		}
+	}
+	
 	/* If there is no attachment data an empty file is written
 	 */
 	if( ( result != 0 )

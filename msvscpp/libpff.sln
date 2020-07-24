@@ -29,7 +29,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_error", "pff_test_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_file", "pff_test_file\pff_test_file.vcxproj", "{450080E3-79C5-496E-A36B-ED327599B98D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_file_header", "pff_test_file_header\pff_test_file_header.vcxproj", "{2B8D2A5D-50B8-4A0D-BF07-A50C83ED669E}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_folder", "pff_test_folder\pff_test_folder.vcxproj", "{05D8EF21-7D87-46F6-8C2A-7E6AD9F734F0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF5BD1AB-6303-4227-8257-5E9CCBCA72D6} = {AF5BD1AB-6303-4227-8257-5E9CCBCA72D6}
+		{BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C} = {BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_index", "pff_test_index\pff_test_index.vcxproj", "{FDA8E70A-F16B-4AB8-995F-D0AD5EEB00DC}"
 EndProject
@@ -40,6 +46,11 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_io_handle", "pff_test_io_handle\pff_test_io_handle.vcxproj", "{4B59BC2E-FE1B-44E6-8E3B-6DF09BC7C94F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_item", "pff_test_item\pff_test_item.vcxproj", "{B15E2BE1-9872-4834-8D9B-5BC71B0D5FEB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B9332DC8-7594-47DF-80C1-38922E0F4DFB} = {B9332DC8-7594-47DF-80C1-38922E0F4DFB}
+		{AF5BD1AB-6303-4227-8257-5E9CCBCA72D6} = {AF5BD1AB-6303-4227-8257-5E9CCBCA72D6}
+		{BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C} = {BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_item_descriptor", "pff_test_item_descriptor\pff_test_item_descriptor.vcxproj", "{3F62FCD2-F489-473F-B69B-F6D02E8A34BD}"
 EndProject
@@ -81,7 +92,17 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_table_block_index"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_table_index_value", "pff_test_table_index_value\pff_test_table_index_value.vcxproj", "{7B39D03E-57C1-44C3-B904-4C5E59826DF6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_tools_info_handle", "pff_test_tools_info_handle\pff_test_tools_info_handle.vcxproj", "{841F470E-C83A-42CD-A9F4-E89DA54DBB69}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_tools_output", "pff_test_tools_output\pff_test_tools_output.vcxproj", "{A1CEA497-3AAD-4ECF-BFA4-ECEA6A30E57C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_tools_signal", "pff_test_tools_signal\pff_test_tools_signal.vcxproj", "{30D7F0F5-AB0A-4A30-B6B0-6980046D1E79}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pff_test_value_type", "pff_test_value_type\pff_test_value_type.vcxproj", "{F3E7EFE8-0026-49C0-9C0F-E2F08DB2B485}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF5BD1AB-6303-4227-8257-5E9CCBCA72D6} = {AF5BD1AB-6303-4227-8257-5E9CCBCA72D6}
+		{BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C} = {BD3A95FA-A3DE-4B79-A889-A7E5ECA4B69C}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libclocale", "libclocale\libclocale.vcxproj", "{CEDF8919-00B2-4D8A-88CC-84ADB2D2FF89}"
 EndProject
@@ -235,6 +256,13 @@ Global
 		{450080E3-79C5-496E-A36B-ED327599B98D}.VSDebug|Win32.Build.0 = VSDebug|Win32
 		{450080E3-79C5-496E-A36B-ED327599B98D}.VSDebug|x64.ActiveCfg = VSDebug|x64
 		{450080E3-79C5-496E-A36B-ED327599B98D}.VSDebug|x64.Build.0 = VSDebug|x64
+		{2B8D2A5D-50B8-4A0D-BF07-A50C83ED669E}.Release|Win32.ActiveCfg = Release|Win32
+		{2B8D2A5D-50B8-4A0D-BF07-A50C83ED669E}.Release|Win32.Build.0 = Release|Win32
+		{2B8D2A5D-50B8-4A0D-BF07-A50C83ED669E}.Release|x64.ActiveCfg = Release|Win32
+		{2B8D2A5D-50B8-4A0D-BF07-A50C83ED669E}.Release|x64.Build.0 = Release|Win32
+		{2B8D2A5D-50B8-4A0D-BF07-A50C83ED669E}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
+		{2B8D2A5D-50B8-4A0D-BF07-A50C83ED669E}.VSDebug|Win32.Build.0 = VSDebug|Win32
+		{2B8D2A5D-50B8-4A0D-BF07-A50C83ED669E}.VSDebug|x64.ActiveCfg = VSDebug|Win32
 		{05D8EF21-7D87-46F6-8C2A-7E6AD9F734F0}.Release|Win32.ActiveCfg = Release|Win32
 		{05D8EF21-7D87-46F6-8C2A-7E6AD9F734F0}.Release|Win32.Build.0 = Release|Win32
 		{05D8EF21-7D87-46F6-8C2A-7E6AD9F734F0}.Release|x64.ActiveCfg = Release|x64
@@ -443,6 +471,27 @@ Global
 		{7B39D03E-57C1-44C3-B904-4C5E59826DF6}.VSDebug|Win32.Build.0 = VSDebug|Win32
 		{7B39D03E-57C1-44C3-B904-4C5E59826DF6}.VSDebug|x64.ActiveCfg = VSDebug|x64
 		{7B39D03E-57C1-44C3-B904-4C5E59826DF6}.VSDebug|x64.Build.0 = VSDebug|x64
+		{841F470E-C83A-42CD-A9F4-E89DA54DBB69}.Release|Win32.ActiveCfg = Release|Win32
+		{841F470E-C83A-42CD-A9F4-E89DA54DBB69}.Release|Win32.Build.0 = Release|Win32
+		{841F470E-C83A-42CD-A9F4-E89DA54DBB69}.Release|x64.ActiveCfg = Release|Win32
+		{841F470E-C83A-42CD-A9F4-E89DA54DBB69}.Release|x64.Build.0 = Release|Win32
+		{841F470E-C83A-42CD-A9F4-E89DA54DBB69}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
+		{841F470E-C83A-42CD-A9F4-E89DA54DBB69}.VSDebug|Win32.Build.0 = VSDebug|Win32
+		{841F470E-C83A-42CD-A9F4-E89DA54DBB69}.VSDebug|x64.ActiveCfg = VSDebug|Win32
+		{A1CEA497-3AAD-4ECF-BFA4-ECEA6A30E57C}.Release|Win32.ActiveCfg = Release|Win32
+		{A1CEA497-3AAD-4ECF-BFA4-ECEA6A30E57C}.Release|Win32.Build.0 = Release|Win32
+		{A1CEA497-3AAD-4ECF-BFA4-ECEA6A30E57C}.Release|x64.ActiveCfg = Release|Win32
+		{A1CEA497-3AAD-4ECF-BFA4-ECEA6A30E57C}.Release|x64.Build.0 = Release|Win32
+		{A1CEA497-3AAD-4ECF-BFA4-ECEA6A30E57C}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
+		{A1CEA497-3AAD-4ECF-BFA4-ECEA6A30E57C}.VSDebug|Win32.Build.0 = VSDebug|Win32
+		{A1CEA497-3AAD-4ECF-BFA4-ECEA6A30E57C}.VSDebug|x64.ActiveCfg = VSDebug|Win32
+		{30D7F0F5-AB0A-4A30-B6B0-6980046D1E79}.Release|Win32.ActiveCfg = Release|Win32
+		{30D7F0F5-AB0A-4A30-B6B0-6980046D1E79}.Release|Win32.Build.0 = Release|Win32
+		{30D7F0F5-AB0A-4A30-B6B0-6980046D1E79}.Release|x64.ActiveCfg = Release|Win32
+		{30D7F0F5-AB0A-4A30-B6B0-6980046D1E79}.Release|x64.Build.0 = Release|Win32
+		{30D7F0F5-AB0A-4A30-B6B0-6980046D1E79}.VSDebug|Win32.ActiveCfg = VSDebug|Win32
+		{30D7F0F5-AB0A-4A30-B6B0-6980046D1E79}.VSDebug|Win32.Build.0 = VSDebug|Win32
+		{30D7F0F5-AB0A-4A30-B6B0-6980046D1E79}.VSDebug|x64.ActiveCfg = VSDebug|Win32
 		{F3E7EFE8-0026-49C0-9C0F-E2F08DB2B485}.Release|Win32.ActiveCfg = Release|Win32
 		{F3E7EFE8-0026-49C0-9C0F-E2F08DB2B485}.Release|Win32.Build.0 = Release|Win32
 		{F3E7EFE8-0026-49C0-9C0F-E2F08DB2B485}.Release|x64.ActiveCfg = Release|x64

@@ -1270,6 +1270,17 @@ int libpff_table_clone_value_data_by_reference(
 
 		goto on_error;
 	}
+	if( table_value_data_size > (size_t) MEMORY_MAXIMUM_ALLOCATION_SIZE )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_VALUE_EXCEEDS_MAXIMUM,
+		 "%s: invalid table value data size value exceeds maximum allocation size.",
+		 function );
+
+		goto on_error;
+	}
 	*value_data = (uint8_t *) memory_allocate(
 	                           table_value_data_size );
 
@@ -1681,7 +1692,7 @@ int libpff_table_get_record_entry_by_index(
 
 /* Retrieves the record entry matching the entry and value type pair from the table.
  *
- * When the LIBPFF_ENTRY_VALUE_FLAG_MATCH_ANY_VALUE_TYPE is set
+ * When the LIBPFF_ENTRY_VALUE_FLAG_MATCH_ANY_VALUE_TYPE flag is set
  * the value type is ignored and set. The default behavior is a strict
  * matching of the value type. In this case the value type must be filled
  * with the corresponding value type
@@ -1787,7 +1798,7 @@ int libpff_table_get_record_entry_by_type(
 
 /* Retrieves the record entry matching the UTF-8 encoded name from the table.
  *
- * When the LIBPFF_ENTRY_VALUE_FLAG_MATCH_ANY_VALUE_TYPE is set
+ * When the LIBPFF_ENTRY_VALUE_FLAG_MATCH_ANY_VALUE_TYPE flag is set
  * the value type is ignored and set. The default behavior is a strict
  * matching of the value type. In this case the value type must be filled
  * with the corresponding value type
@@ -1892,7 +1903,7 @@ int libpff_table_get_record_entry_by_utf8_name(
 
 /* Retrieves the record entry matching the UTF-16 encoded name from the table.
  *
- * When the LIBPFF_ENTRY_VALUE_FLAG_MATCH_ANY_VALUE_TYPE is set
+ * When the LIBPFF_ENTRY_VALUE_FLAG_MATCH_ANY_VALUE_TYPE flag is set
  * the value type is ignored and set. The default behavior is a strict
  * matching of the value type. In this case the value type must be filled
  * with the corresponding value type
@@ -3654,6 +3665,18 @@ int libpff_table_read_7c_values(
 	 */
 	column_definitions_data_size = table_header_data_size;
 
+	if( ( column_definitions_data_size == 0 )
+	 || ( column_definitions_data_size > (size_t) MEMORY_MAXIMUM_ALLOCATION_SIZE ) )
+	{
+		libcerror_error_set(
+		 error,
+		 LIBCERROR_ERROR_DOMAIN_RUNTIME,
+		 LIBCERROR_RUNTIME_ERROR_VALUE_OUT_OF_BOUNDS,
+		 "%s: invalid column definitions data size value out of bounds.",
+		 function );
+
+		goto on_error;
+	}
 	column_definitions_data = (uint8_t *) memory_allocate(
 	                                       column_definitions_data_size );
 

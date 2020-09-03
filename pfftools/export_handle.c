@@ -1340,7 +1340,7 @@ int export_handle_export_item(
 		 item_index + 1,
 		 number_of_items );
 
-		return( 1 );
+		return( -1 );
 	}
 	switch( item_type )
 	{

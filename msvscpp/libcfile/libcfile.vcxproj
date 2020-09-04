@@ -150,6 +150,7 @@
     <ClCompile Include="..\..\libcfile\libcfile_notify.c" />
     <ClCompile Include="..\..\libcfile\libcfile_support.c" />
     <ClCompile Include="..\..\libcfile\libcfile_system_string.c" />
+    <ClCompile Include="..\..\libcfile\libcfile_winapi.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\libcfile\libcfile_definitions.h" />
@@ -183,6 +184,7 @@
       <Project>{bc27ff34-c859-4a1a-95d6-fc89952e1910}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ClInclude Include="..\..\libcfile\libcfile_winapi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

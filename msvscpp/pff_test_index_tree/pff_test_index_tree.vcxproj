@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{841F470E-C83A-42CD-A9F4-E89DA54DBB69}</ProjectGuid>
-    <RootNamespace>pff_test_tools_info_handle</RootNamespace>
+    <ProjectGuid>{70847BA9-F80A-4B81-A161-1FF6C79AB659}</ProjectGuid>
+    <RootNamespace>pff_test_index_tree</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -63,7 +63,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <_ProjectFileVersion>16.0.30028.132</_ProjectFileVersion>
+    <_ProjectFileVersion>16.0.30323.82</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
@@ -162,32 +162,62 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\pfftools\info_handle.c" />
-    <ClCompile Include="..\..\tests\pff_test_memory.c" />
-    <ClCompile Include="..\..\tests\pff_test_tools_info_handle.c" />
+    <ClCompile Include="..\..\tests\pff_test_functions.c" />
+    <ClCompile Include="..\..\tests\pff_test_index_tree.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\pfftools\info_handle.h" />
+    <ClInclude Include="..\..\tests\pff_test_functions.h" />
+    <ClInclude Include="..\..\tests\pff_test_libbfio.h" />
     <ClInclude Include="..\..\tests\pff_test_libcerror.h" />
+    <ClInclude Include="..\..\tests\pff_test_libfcache.h" />
+    <ClInclude Include="..\..\tests\pff_test_libfdata.h" />
+    <ClInclude Include="..\..\tests\pff_test_libpff.h" />
     <ClInclude Include="..\..\tests\pff_test_macros.h" />
-    <ClInclude Include="..\..\tests\pff_test_memory.h" />
     <ClInclude Include="..\..\tests\pff_test_unused.h" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\libbfio\libbfio.vcxproj">
+      <Project>{41cfafbf-a1c8-4704-afef-31979e6452b9}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\libcdata\libcdata.vcxproj">
+      <Project>{b9332dc8-7594-47df-80c1-38922e0f4dfb}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
     <ProjectReference Include="..\libcerror\libcerror.vcxproj">
       <Project>{bd3a95fa-a3de-4b79-a889-a7e5eca4b69c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\libcfile\libcfile.vcxproj">
+      <Project>{4c93bdd3-1804-47f3-9b34-f2de0cae1ae0}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\libclocale\libclocale.vcxproj">
       <Project>{cedf8919-00b2-4d8a-88cc-84adb2d2ff89}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\libfdatetime\libfdatetime.vcxproj">
-      <Project>{25c60507-39c6-4564-912d-da2e7482a00f}</Project>
+    <ProjectReference Include="..\libcnotify\libcnotify.vcxproj">
+      <Project>{5304ad69-d449-4589-b2c9-e4607e56a51d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\libcpath\libcpath.vcxproj">
+      <Project>{3ffb9c05-1145-45a7-9ade-5c8d70fbd7ca}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\libcsplit\libcsplit.vcxproj">
+      <Project>{b86fb73a-4acc-42de-9545-586d93955b06}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\libfdata\libfdata.vcxproj">
+      <Project>{f94dcc2d-2b49-453e-89b3-fd81992677d0}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\libpff\libpff.vcxproj">
       <Project>{af5bd1ab-6303-4227-8257-5e9ccbca72d6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\libuna\libuna.vcxproj">
+      <Project>{bc27ff34-c859-4a1a-95d6-fc89952e1910}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>

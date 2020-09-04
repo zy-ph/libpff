@@ -30,6 +30,9 @@
     <ClCompile Include="..\..\libcfile\libcfile_system_string.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\libcfile\libcfile_winapi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\libcfile\libcfile_definitions.h">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libcfile\libcfile_unused.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libcfile\libcfile_winapi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -146,9 +146,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\libfdata\libfdata_area.c" />
-    <ClCompile Include="..\..\libfdata\libfdata_btree.c" />
-    <ClCompile Include="..\..\libfdata\libfdata_btree_node.c" />
-    <ClCompile Include="..\..\libfdata\libfdata_btree_range.c" />
     <ClCompile Include="..\..\libfdata\libfdata_cache.c" />
     <ClCompile Include="..\..\libfdata\libfdata_error.c" />
     <ClCompile Include="..\..\libfdata\libfdata_list.c" />
@@ -166,9 +163,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\libfdata\libfdata_area.h" />
-    <ClInclude Include="..\..\libfdata\libfdata_btree.h" />
-    <ClInclude Include="..\..\libfdata\libfdata_btree_node.h" />
-    <ClInclude Include="..\..\libfdata\libfdata_btree_range.h" />
     <ClInclude Include="..\..\libfdata\libfdata_cache.h" />
     <ClInclude Include="..\..\libfdata\libfdata_definitions.h" />
     <ClInclude Include="..\..\libfdata\libfdata_error.h" />

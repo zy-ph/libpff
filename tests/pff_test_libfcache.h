@@ -1,5 +1,5 @@
 /*
- * Date and time functions
+ * The libfcache header wrapper
  *
  * Copyright (C) 2008-2020, Joachim Metz <joachim.metz@gmail.com>
  *
@@ -19,36 +19,32 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#if !defined( _PYPFF_DATETIME_H )
-#define _PYPFF_DATETIME_H
+#if !defined( _PFF_TESTS_LIBFCACHE_H )
+#define _PFF_TESTS_LIBFCACHE_H
 
 #include <common.h>
-#include <types.h>
 
-#include "pypff_python.h"
+/* Define HAVE_LOCAL_LIBFCACHE for local use of libfcache
+ */
+#if defined( HAVE_LOCAL_LIBFCACHE )
 
-#if defined( __cplusplus )
-extern "C" {
+#include <libfcache_cache.h>
+#include <libfcache_date_time.h>
+#include <libfcache_definitions.h>
+#include <libfcache_types.h>
+
+#else
+
+/* If libtool DLL support is enabled set LIBFCACHE_DLL_IMPORT
+ * before including libfcache.h
+ */
+#if defined( _WIN32 ) && defined( DLL_IMPORT )
+#define LIBFCACHE_DLL_IMPORT
 #endif
 
-PyObject *pypff_datetime_new_from_fat_date_time(
-           uint32_t fat_date_time );
+#include <libfcache.h>
 
-PyObject *pypff_datetime_new_from_filetime(
-           uint64_t filetime );
+#endif /* defined( HAVE_LOCAL_LIBFCACHE ) */
 
-PyObject *pypff_datetime_new_from_floatingtime(
-           uint64_t floatingtime );
-
-PyObject *pypff_datetime_new_from_posix_time(
-           int64_t posix_time );
-
-PyObject *pypff_datetime_new_from_posix_time_in_micro_seconds(
-           int64_t posix_time );
-
-#if defined( __cplusplus )
-}
-#endif
-
-#endif /* !defined( _PYPFF_DATETIME_H ) */
+#endif /* !defined( _PFF_TESTS_LIBFCACHE_H ) */
 

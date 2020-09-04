@@ -171,6 +171,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\tests\pff_test_libcerror.h" />
+    <ClInclude Include="..\..\tests\pff_test_libfcache.h" />
+    <ClInclude Include="..\..\tests\pff_test_libfdata.h" />
     <ClInclude Include="..\..\tests\pff_test_libpff.h" />
     <ClInclude Include="..\..\tests\pff_test_macros.h" />
     <ClInclude Include="..\..\tests\pff_test_memory.h" />

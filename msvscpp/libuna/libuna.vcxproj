@@ -179,6 +179,7 @@
     <ClCompile Include="..\..\libuna\libuna_codepage_windows_949.c" />
     <ClCompile Include="..\..\libuna\libuna_codepage_windows_950.c" />
     <ClCompile Include="..\..\libuna\libuna_error.c" />
+    <ClCompile Include="..\..\libuna\libuna_scsu.c" />
     <ClCompile Include="..\..\libuna\libuna_support.c" />
     <ClCompile Include="..\..\libuna\libuna_unicode_character.c" />
     <ClCompile Include="..\..\libuna\libuna_url_stream.c" />
@@ -228,6 +229,7 @@
     <ClInclude Include="..\..\libuna\libuna_error.h" />
     <ClInclude Include="..\..\libuna\libuna_extern.h" />
     <ClInclude Include="..\..\libuna\libuna_libcerror.h" />
+    <ClInclude Include="..\..\libuna\libuna_scsu.h" />
     <ClInclude Include="..\..\libuna\libuna_support.h" />
     <ClInclude Include="..\..\libuna\libuna_types.h" />
     <ClInclude Include="..\..\libuna\libuna_unicode_character.h" />

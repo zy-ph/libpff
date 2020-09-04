@@ -171,6 +171,7 @@
     <ClCompile Include="..\..\libpff\libpff_encryption.c" />
     <ClCompile Include="..\..\libpff\libpff_error.c" />
     <ClCompile Include="..\..\libpff\libpff_file.c" />
+    <ClCompile Include="..\..\libpff\libpff_file_header.c" />
     <ClCompile Include="..\..\libpff\libpff_folder.c" />
     <ClCompile Include="..\..\libpff\libpff_free_map.c" />
     <ClCompile Include="..\..\libpff\libpff_index.c" />
@@ -223,6 +224,7 @@
     <ClInclude Include="..\..\libpff\libpff_error.h" />
     <ClInclude Include="..\..\libpff\libpff_extern.h" />
     <ClInclude Include="..\..\libpff\libpff_file.h" />
+    <ClInclude Include="..\..\libpff\libpff_file_header.h" />
     <ClInclude Include="..\..\libpff\libpff_folder.h" />
     <ClInclude Include="..\..\libpff\libpff_free_map.h" />
     <ClInclude Include="..\..\libpff\libpff_index.h" />

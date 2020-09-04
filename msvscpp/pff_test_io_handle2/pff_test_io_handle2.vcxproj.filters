@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\tests\pff_test_memory.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\tests\pff_test_table.c">
+    <ClCompile Include="..\..\tests\pff_test_io_handle2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -36,9 +33,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\tests\pff_test_macros.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\tests\pff_test_memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\tests\pff_test_unused.h">

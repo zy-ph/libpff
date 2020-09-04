@@ -117,6 +117,9 @@
     <ClCompile Include="..\..\libuna\libuna_error.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\libuna\libuna_scsu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\libuna\libuna_support.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -258,6 +261,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libuna\libuna_libcerror.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libuna\libuna_scsu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libuna\libuna_support.h">

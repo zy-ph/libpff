@@ -7795,7 +7795,7 @@ int export_handle_export_attachment_data(
 	{
 		int attachment_type = 0;
 		uint32_t value_type = 0;
-		void *value_data = NULL;
+		uint8_t *value_data = NULL;
 		size_t value_data_size = 0;
 		int64_t unknown = -1;
 		uint8_t false_value = 0;
@@ -7811,7 +7811,7 @@ int export_handle_export_attachment_data(
 									LIBPFF_ENTRY_VALUE_FLAG_MATCH_ANY_VALUE_TYPE,
 									error) != 1)
 		{
-			value_data = &unknown;
+			value_data = (uint8_t*)&unknown;
 		}
 		else
 		{
@@ -7885,7 +7885,7 @@ int export_handle_export_attachment_data(
 									LIBPFF_ENTRY_VALUE_FLAG_MATCH_ANY_VALUE_TYPE,
 									error) != 1)
 		{
-			value_data = &unknown;
+			value_data = (uint8_t*)&unknown;
 			value_data_size = sizeof(unknown);
 		}
 		write_count = file_stream_write(attachment_file_stream, value_data, value_data_size);
@@ -7910,7 +7910,7 @@ int export_handle_export_attachment_data(
 								LIBPFF_ENTRY_VALUE_FLAG_MATCH_ANY_VALUE_TYPE,
 								error) != 1)
 		{
-			value_data = &unknown;
+			value_data = (uint8_t*)&unknown;
 			value_data_size = sizeof(unknown);
 		}
 		write_count = file_stream_write(attachment_file_stream, value_data, value_data_size);
